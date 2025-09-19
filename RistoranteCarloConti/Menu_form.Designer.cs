@@ -58,6 +58,7 @@
             this.txt_cerca.Size = new System.Drawing.Size(223, 22);
             this.txt_cerca.TabIndex = 1;
             this.txt_cerca.Text = "Cerca piatto...";
+            this.txt_cerca.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_cerca_MouseUp);
             // 
             // lbl_menu
             // 
@@ -78,6 +79,7 @@
             this.btn_cerca.TabIndex = 3;
             this.btn_cerca.Text = "cerca";
             this.btn_cerca.UseVisualStyleBackColor = true;
+            this.btn_cerca.Click += new System.EventHandler(this.btn_cerca_Click);
             // 
             // btn_aggiungi
             // 
@@ -107,6 +109,7 @@
             this.txt_nomeOrdine.Size = new System.Drawing.Size(171, 22);
             this.txt_nomeOrdine.TabIndex = 5;
             this.txt_nomeOrdine.Text = "Nome piatto...";
+            this.txt_nomeOrdine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_nomeOrdine_MouseUp);
             // 
             // lst_ordini
             // 
@@ -156,6 +159,7 @@
             this.txt_nome.Size = new System.Drawing.Size(318, 22);
             this.txt_nome.TabIndex = 10;
             this.txt_nome.Text = "Nome e cognome...";
+            this.txt_nome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_nome_MouseUp);
             // 
             // Menu_form
             // 
