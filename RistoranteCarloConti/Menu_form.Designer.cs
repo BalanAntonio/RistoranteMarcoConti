@@ -90,6 +90,7 @@
             this.btn_aggiungi.TabIndex = 7;
             this.btn_aggiungi.Text = "aggiungi";
             this.btn_aggiungi.UseVisualStyleBackColor = true;
+            this.btn_aggiungi.Click += new System.EventHandler(this.btn_aggiungi_Click);
             // 
             // lbl_ordina
             // 

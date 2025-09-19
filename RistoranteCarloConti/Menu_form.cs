@@ -18,6 +18,8 @@ namespace RistoranteCarloConti
             InitializeComponent();
         }
 
+        private string[] listaPiatti;
+
         private void AggiornaMenu(string cosa)
         {
             using (StreamReader sr = new StreamReader("menu.csv"))
@@ -26,17 +28,43 @@ namespace RistoranteCarloConti
                 string[] tutti = tutto.Split('\n');
 
                 lst_menu.Items.Clear();
+                listaPiatti = new string[tutti.Length];
 
-                for (int i = 0; i < tutti.Length; i++)
+                if(string.IsNullOrWhiteSpace(cosa) || cosa =="Cerca piatto...")
                 {
-                    string[] diviso = tutti[i].Split(';');
-                    if(cosa == "" || diviso[0].ToLower() == cosa.ToLower())
+                    for (int i = 0; i < tutti.Length; i++)
                     {
+                        string[] diviso = tutti[i].Split(';');
                         lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
+
+                        listaPiatti[i] = diviso[0];
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < tutti.Length; i++)
+                    {
+                        string[] diviso = tutti[i].Split(';');
+                        if (diviso[0].ToLower() == cosa.ToLower())
+                        {
+                            lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
+                        }
                     }
                 }
 
             }
+        }
+
+        private bool PiattoValido(string nome)
+        {
+            for(int i = 0; i < listaPiatti.Length; i++)
+            {
+                if (nome.ToLower() == listaPiatti[i].ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void Menu_form_Load(object sender, EventArgs e)
@@ -51,6 +79,15 @@ namespace RistoranteCarloConti
         private void btn_cerca_Click(object sender, EventArgs e)
         {
             AggiornaMenu(txt_cerca.Text);
+        }
+
+        private void btn_aggiungi_Click(object sender, EventArgs e)
+        {
+            if (!PiattoValido(txt_nomeOrdine.Text))
+            {
+                MessageBox.Show("Piatto non valido");
+                return;
+            }
         }
     }
 }
