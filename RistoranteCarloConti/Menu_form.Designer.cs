@@ -39,6 +39,7 @@
             this.btn_conferma = new System.Windows.Forms.Button();
             this.nmr_quantitaOrdine = new System.Windows.Forms.NumericUpDown();
             this.txt_nome = new System.Windows.Forms.TextBox();
+            this.lbl_totale = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_quantitaOrdine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,16 +158,27 @@
             this.txt_nome.Font = new System.Drawing.Font("Calibri", 9F);
             this.txt_nome.Location = new System.Drawing.Point(349, 395);
             this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(318, 22);
+            this.txt_nome.Size = new System.Drawing.Size(188, 22);
             this.txt_nome.TabIndex = 10;
             this.txt_nome.Text = "Nome e cognome...";
             this.txt_nome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_nome_MouseUp);
+            // 
+            // lbl_totale
+            // 
+            this.lbl_totale.Font = new System.Drawing.Font("Calibri", 9F);
+            this.lbl_totale.Location = new System.Drawing.Point(543, 395);
+            this.lbl_totale.Name = "lbl_totale";
+            this.lbl_totale.Size = new System.Drawing.Size(124, 22);
+            this.lbl_totale.TabIndex = 11;
+            this.lbl_totale.Text = "Tot. 0 euro";
+            this.lbl_totale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Menu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.lbl_totale);
             this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.nmr_quantitaOrdine);
             this.Controls.Add(this.btn_conferma);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Button btn_conferma;
         private System.Windows.Forms.NumericUpDown nmr_quantitaOrdine;
         private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.Label lbl_totale;
     }
 }

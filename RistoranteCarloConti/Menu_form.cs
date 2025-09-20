@@ -19,6 +19,8 @@ namespace RistoranteCarloConti
         }
 
         private string[] listaPiatti;
+        private float[] prezziPiatti;
+        private float prezzoTot = 0f;
 
         private void AggiornaMenu(string cosa)
         {
@@ -28,7 +30,9 @@ namespace RistoranteCarloConti
                 string[] tutti = tutto.Split('\n');
 
                 lst_menu.Items.Clear();
+
                 listaPiatti = new string[tutti.Length];
+                prezziPiatti = new float[tutti.Length];
 
                 if(string.IsNullOrWhiteSpace(cosa) || cosa =="Cerca piatto...")
                 {
@@ -38,6 +42,8 @@ namespace RistoranteCarloConti
                         lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
 
                         listaPiatti[i] = diviso[0];
+                        MessageBox.Show(diviso[1]);
+                        prezziPiatti[i] = float.Parse(diviso[1]);
                     }
                 }
                 else
@@ -48,12 +54,14 @@ namespace RistoranteCarloConti
                         if (diviso[0].ToLower() == cosa.ToLower())
                         {
                             lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
+                            prezziPiatti[i] = float.Parse(diviso[1]);
                         }
                     }
                 }
 
             }
         }
+
 
         private bool PiattoValido(string nome)
         {
@@ -67,6 +75,18 @@ namespace RistoranteCarloConti
             return false;
         }
 
+        private float PrezzoPiatto(string nome)
+        {
+            for(int i = 0; i<listaPiatti.Length; i++)
+            {
+                if(nome.ToLower() == listaPiatti[i].ToLower())
+                {
+                    return prezziPiatti[i];
+                }
+            }
+            return -1;
+        }
+
         private void Menu_form_Load(object sender, EventArgs e)
         {
             AggiornaMenu("");
@@ -76,10 +96,12 @@ namespace RistoranteCarloConti
         private void txt_nomeOrdine_MouseUp(object sender, MouseEventArgs e) { txt_nomeOrdine.Text = ""; }
         private void txt_nome_MouseUp(object sender, MouseEventArgs e) { txt_nome.Text = ""; }
 
+
         private void btn_cerca_Click(object sender, EventArgs e)
         {
             AggiornaMenu(txt_cerca.Text);
         }
+
 
         private void btn_aggiungi_Click(object sender, EventArgs e)
         {
@@ -87,6 +109,12 @@ namespace RistoranteCarloConti
             {
                 MessageBox.Show("Piatto non valido");
                 return;
+            }
+            else
+            {
+                lst_ordini.Items.Add(txt_nomeOrdine.Text + "\t\t\t" + nmr_quantitaOrdine.Value);
+                prezzoTot += (float)nmr_quantitaOrdine.Value * PrezzoPiatto(txt_nomeOrdine.Text);
+                lbl_totale.Text = $"Tot. {prezzoTot} euro";
             }
         }
     }
