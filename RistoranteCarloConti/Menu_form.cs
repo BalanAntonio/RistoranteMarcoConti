@@ -97,6 +97,7 @@ namespace RistoranteCarloConti
         private void txt_nome_MouseUp(object sender, MouseEventArgs e) { txt_nome.Text = ""; }
 
 
+
         private void btn_cerca_Click(object sender, EventArgs e)
         {
             AggiornaMenu(txt_cerca.Text);

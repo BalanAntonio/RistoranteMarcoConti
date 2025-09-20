@@ -10,14 +10,17 @@ namespace RistoranteCarloConti
     {
         private string n;
         private float p;
+        private int q;
 
         public string Nome { get { return n; } }
         public float Prezzo { get { return p; } }
+        public float Quantita { get { return q; } }
 
-        public Piatto(string nome, float prezzo)
+        public Piatto(string nome, float prezzo, int quantita)
         {
             n = nome;
             p = prezzo;
+            q = quantita;
         }
     }
 }

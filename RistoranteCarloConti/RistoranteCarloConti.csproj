@@ -58,6 +58,7 @@
     <Compile Include="Menu_form.Designer.cs">
       <DependentUpon>Menu_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ordine.cs" />
     <Compile Include="Piatto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
