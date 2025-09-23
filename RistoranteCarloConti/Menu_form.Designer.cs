@@ -130,6 +130,7 @@
             this.btn_conferma.TabIndex = 8;
             this.btn_conferma.Text = "Conferma ordini";
             this.btn_conferma.UseVisualStyleBackColor = true;
+            this.btn_conferma.Click += new System.EventHandler(this.btn_conferma_Click);
             // 
             // nmr_quantitaOrdine
             // 

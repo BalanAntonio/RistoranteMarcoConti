@@ -21,6 +21,9 @@ namespace RistoranteCarloConti
         private string[] listaPiatti;
         private float[] prezziPiatti;
         private float prezzoTot = 0f;
+        private List<Piatto> piatti;
+
+        internal Ordine ordine;
 
         private void AggiornaMenu(string cosa)
         {
@@ -42,7 +45,6 @@ namespace RistoranteCarloConti
                         lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
 
                         listaPiatti[i] = diviso[0];
-                        MessageBox.Show(diviso[1]);
                         prezziPiatti[i] = float.Parse(diviso[1]);
                     }
                 }
@@ -90,6 +92,7 @@ namespace RistoranteCarloConti
         private void Menu_form_Load(object sender, EventArgs e)
         {
             AggiornaMenu("");
+            piatti = new List<Piatto>();
         }
 
         private void txt_cerca_MouseUp(object sender, MouseEventArgs e) { txt_cerca.Text = ""; }
@@ -113,9 +116,22 @@ namespace RistoranteCarloConti
             }
             else
             {
-                lst_ordini.Items.Add(txt_nomeOrdine.Text + "\t\t\t" + nmr_quantitaOrdine.Value);
-                prezzoTot += (float)nmr_quantitaOrdine.Value * PrezzoPiatto(txt_nomeOrdine.Text);
+                Piatto piatto = new Piatto(txt_nomeOrdine.Text, (float)nmr_quantitaOrdine.Value * PrezzoPiatto(txt_nomeOrdine.Text), (int)nmr_quantitaOrdine.Value);
+                piatti.Add(piatto);
+
+                lst_ordini.Items.Add(piatto.Nome + "\t\t\t" + piatto.Quantita);
+                prezzoTot += piatto.Prezzo;
                 lbl_totale.Text = $"Tot. {prezzoTot} euro";
+            }
+        }
+
+        private void btn_conferma_Click(object sender, EventArgs e)
+        {
+            if(txt_nome.Text != "Nome e cognome..." && !string.IsNullOrWhiteSpace(txt_nome.Text))
+            {
+                ordine = new Ordine(piatti.ToArray(), txt_nome.Text, prezzoTot);
+                MessageBox.Show("Ordine confermato.");
+                this.Close();
             }
         }
     }

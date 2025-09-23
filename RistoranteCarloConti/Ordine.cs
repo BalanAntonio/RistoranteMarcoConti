@@ -9,10 +9,18 @@ namespace RistoranteCarloConti
     internal class Ordine
     {
         private Piatto[] p;
+        private string n;
+        private float pr;
 
-        public Ordine(Piatto[] piatti)
+        public Piatto[] Piatti { get { return p; } }
+        public string Nome { get { return n; } }
+        public float PrezzoTot { get { return pr; } }
+
+        public Ordine(Piatto[] piatti, string chi, float prezzo)
         {
             p = piatti;
+            n = chi;
+            pr = prezzo;
         }
     }
 }
