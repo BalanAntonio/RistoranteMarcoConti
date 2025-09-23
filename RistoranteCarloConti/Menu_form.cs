@@ -127,11 +127,15 @@ namespace RistoranteCarloConti
 
         private void btn_conferma_Click(object sender, EventArgs e)
         {
-            if(txt_nome.Text != "Nome e cognome..." && !string.IsNullOrWhiteSpace(txt_nome.Text))
+            if(txt_nome.Text != "Nome e cognome..." && !string.IsNullOrWhiteSpace(txt_nome.Text) && piatti.Any())
             {
                 ordine = new Ordine(piatti.ToArray(), txt_nome.Text, prezzoTot);
                 MessageBox.Show("Ordine confermato.");
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Errore: controllare i dati inseriti.");
             }
         }
     }

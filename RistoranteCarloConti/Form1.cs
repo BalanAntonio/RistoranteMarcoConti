@@ -16,5 +16,12 @@ namespace RistoranteCarloConti
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu_form menu = new Menu_form();
+            menu.ShowDialog();
+            
+        }
     }
 }
