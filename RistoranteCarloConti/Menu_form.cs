@@ -29,6 +29,7 @@ namespace RistoranteCarloConti
         {
             using (StreamReader sr = new StreamReader("menu.csv"))
             {
+                sr.ReadLine();
                 string tutto = sr.ReadToEnd();
                 string[] tutti = tutto.Split('\n');
 
@@ -42,7 +43,7 @@ namespace RistoranteCarloConti
                     for (int i = 0; i < tutti.Length; i++)
                     {
                         string[] diviso = tutti[i].Split(';');
-                        lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
+                        lst_menu.Items.Add(diviso[0] + ":   " + diviso[1] + " euro");
 
                         listaPiatti[i] = diviso[0];
                         prezziPiatti[i] = float.Parse(diviso[1]);
@@ -55,7 +56,7 @@ namespace RistoranteCarloConti
                         string[] diviso = tutti[i].Split(';');
                         if (diviso[0].ToLower().Contains(cosa.ToLower()))
                         {
-                            lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
+                            lst_menu.Items.Add(diviso[0] + ":   " + diviso[1] + " euro");
                             prezziPiatti[i] = float.Parse(diviso[1]);
                         }
                     }
@@ -119,7 +120,7 @@ namespace RistoranteCarloConti
                 Piatto piatto = new Piatto(txt_nomeOrdine.Text, (float)nmr_quantitaOrdine.Value * PrezzoPiatto(txt_nomeOrdine.Text), (int)nmr_quantitaOrdine.Value);
                 piatti.Add(piatto);
 
-                lst_ordini.Items.Add(piatto.Nome + "\t\t\t" + piatto.Quantita);
+                lst_ordini.Items.Add(piatto.Quantita + " x " + piatto.Nome);
                 prezzoTot += piatto.Prezzo;
 
                 if(prezzoTot > 50f)

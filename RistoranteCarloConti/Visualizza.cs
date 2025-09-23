@@ -30,6 +30,7 @@ namespace RistoranteCarloConti
         {
             lbl_nc.Text = pordine.Nome;
             lbl_tavolo.Text = "Tavolo n. " + pid;
+            lbl_prezzo.Text = "Prezzo tot. " + pordine.PrezzoTot + "€";
 
             for (int i = 0; i < pordine.Piatti.Length; i++)
             {

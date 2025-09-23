@@ -32,6 +32,7 @@
             this.lbl_tavolo = new System.Windows.Forms.Label();
             this.lst_piatti = new System.Windows.Forms.ListBox();
             this.lbl_piattiordinati = new System.Windows.Forms.Label();
+            this.lbl_prezzo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_nc
@@ -67,16 +68,27 @@
             this.lbl_piattiordinati.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_piattiordinati.Location = new System.Drawing.Point(12, 84);
             this.lbl_piattiordinati.Name = "lbl_piattiordinati";
-            this.lbl_piattiordinati.Size = new System.Drawing.Size(329, 21);
+            this.lbl_piattiordinati.Size = new System.Drawing.Size(99, 21);
             this.lbl_piattiordinati.TabIndex = 11;
             this.lbl_piattiordinati.Text = "Piatti ordinati:";
             this.lbl_piattiordinati.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // lbl_prezzo
+            // 
+            this.lbl_prezzo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_prezzo.Location = new System.Drawing.Point(193, 84);
+            this.lbl_prezzo.Name = "lbl_prezzo";
+            this.lbl_prezzo.Size = new System.Drawing.Size(148, 21);
+            this.lbl_prezzo.TabIndex = 12;
+            this.lbl_prezzo.Text = "Prezzo tot.";
+            this.lbl_prezzo.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Visualizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 438);
+            this.Controls.Add(this.lbl_prezzo);
             this.Controls.Add(this.lbl_piattiordinati);
             this.Controls.Add(this.lst_piatti);
             this.Controls.Add(this.lbl_tavolo);
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Label lbl_tavolo;
         private System.Windows.Forms.ListBox lst_piatti;
         private System.Windows.Forms.Label lbl_piattiordinati;
+        private System.Windows.Forms.Label lbl_prezzo;
     }
 }
