@@ -138,5 +138,10 @@ namespace RistoranteCarloConti
                 MessageBox.Show("Errore: controllare i dati inseriti.");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AggiornaMenu("");
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace RistoranteCarloConti
 {
-    partial class Form1
+    partial class Ristorante
     {
         /// <summary>
         /// Variabile di progettazione necessaria.

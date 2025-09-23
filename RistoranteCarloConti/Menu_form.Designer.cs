@@ -40,6 +40,7 @@
             this.nmr_quantitaOrdine = new System.Windows.Forms.NumericUpDown();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.lbl_totale = new System.Windows.Forms.Label();
+            this.btn_refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_quantitaOrdine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,9 +55,9 @@
             // txt_cerca
             // 
             this.txt_cerca.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txt_cerca.Location = new System.Drawing.Point(12, 44);
+            this.txt_cerca.Location = new System.Drawing.Point(43, 44);
             this.txt_cerca.Name = "txt_cerca";
-            this.txt_cerca.Size = new System.Drawing.Size(223, 22);
+            this.txt_cerca.Size = new System.Drawing.Size(192, 22);
             this.txt_cerca.TabIndex = 1;
             this.txt_cerca.Text = "Cerca piatto...";
             this.txt_cerca.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_cerca_MouseUp);
@@ -174,11 +175,23 @@
             this.lbl_totale.Text = "Tot. 0 euro";
             this.lbl_totale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btn_refresh.Location = new System.Drawing.Point(12, 44);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(25, 23);
+            this.btn_refresh.TabIndex = 12;
+            this.btn_refresh.Text = "⟳";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Menu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.lbl_totale);
             this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.nmr_quantitaOrdine);
@@ -214,5 +227,6 @@
         private System.Windows.Forms.NumericUpDown nmr_quantitaOrdine;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label lbl_totale;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

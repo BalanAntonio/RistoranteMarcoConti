@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RistoranteCarloConti
 {
-    public partial class Form1 : Form
+    public partial class Ristorante : Form
     {
-        public Form1()
+        public Ristorante()
         {
             InitializeComponent();
         }
