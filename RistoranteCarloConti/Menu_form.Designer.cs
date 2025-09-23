@@ -31,7 +31,6 @@
             this.lst_menu = new System.Windows.Forms.ListBox();
             this.txt_cerca = new System.Windows.Forms.TextBox();
             this.lbl_menu = new System.Windows.Forms.Label();
-            this.btn_cerca = new System.Windows.Forms.Button();
             this.btn_aggiungi = new System.Windows.Forms.Button();
             this.lbl_ordina = new System.Windows.Forms.Label();
             this.txt_nomeOrdine = new System.Windows.Forms.TextBox();
@@ -55,11 +54,12 @@
             // txt_cerca
             // 
             this.txt_cerca.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txt_cerca.Location = new System.Drawing.Point(43, 44);
+            this.txt_cerca.Location = new System.Drawing.Point(16, 44);
             this.txt_cerca.Name = "txt_cerca";
-            this.txt_cerca.Size = new System.Drawing.Size(192, 22);
+            this.txt_cerca.Size = new System.Drawing.Size(283, 22);
             this.txt_cerca.TabIndex = 1;
             this.txt_cerca.Text = "Cerca piatto...";
+            this.txt_cerca.TextChanged += new System.EventHandler(this.txt_cerca_TextChanged);
             this.txt_cerca.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_cerca_MouseUp);
             // 
             // lbl_menu
@@ -71,17 +71,6 @@
             this.lbl_menu.TabIndex = 2;
             this.lbl_menu.Text = "Menù";
             this.lbl_menu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_cerca
-            // 
-            this.btn_cerca.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_cerca.Location = new System.Drawing.Point(241, 44);
-            this.btn_cerca.Name = "btn_cerca";
-            this.btn_cerca.Size = new System.Drawing.Size(89, 23);
-            this.btn_cerca.TabIndex = 3;
-            this.btn_cerca.Text = "cerca";
-            this.btn_cerca.UseVisualStyleBackColor = true;
-            this.btn_cerca.Click += new System.EventHandler(this.btn_cerca_Click);
             // 
             // btn_aggiungi
             // 
@@ -178,7 +167,7 @@
             // btn_refresh
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_refresh.Location = new System.Drawing.Point(12, 44);
+            this.btn_refresh.Location = new System.Drawing.Point(305, 43);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(25, 23);
             this.btn_refresh.TabIndex = 12;
@@ -200,7 +189,6 @@
             this.Controls.Add(this.lbl_ordina);
             this.Controls.Add(this.txt_nomeOrdine);
             this.Controls.Add(this.lst_ordini);
-            this.Controls.Add(this.btn_cerca);
             this.Controls.Add(this.lbl_menu);
             this.Controls.Add(this.txt_cerca);
             this.Controls.Add(this.lst_menu);
@@ -218,7 +206,6 @@
         private System.Windows.Forms.ListBox lst_menu;
         private System.Windows.Forms.TextBox txt_cerca;
         private System.Windows.Forms.Label lbl_menu;
-        private System.Windows.Forms.Button btn_cerca;
         private System.Windows.Forms.Button btn_aggiungi;
         private System.Windows.Forms.Label lbl_ordina;
         private System.Windows.Forms.TextBox txt_nomeOrdine;

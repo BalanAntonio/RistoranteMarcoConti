@@ -28,26 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_aggiungi = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbl_ordina = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_aggiungi
             // 
-            this.button1.Location = new System.Drawing.Point(345, 126);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_aggiungi.Location = new System.Drawing.Point(12, 366);
+            this.btn_aggiungi.Name = "btn_aggiungi";
+            this.btn_aggiungi.Size = new System.Drawing.Size(324, 23);
+            this.btn_aggiungi.TabIndex = 0;
+            this.btn_aggiungi.Text = "Piazza ordine";
+            this.btn_aggiungi.UseVisualStyleBackColor = true;
+            this.btn_aggiungi.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 44);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(324, 316);
+            this.listBox1.TabIndex = 1;
+            // 
+            // lbl_ordina
+            // 
+            this.lbl_ordina.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ordina.Location = new System.Drawing.Point(12, 9);
+            this.lbl_ordina.Name = "lbl_ordina";
+            this.lbl_ordina.Size = new System.Drawing.Size(324, 32);
+            this.lbl_ordina.TabIndex = 7;
+            this.lbl_ordina.Text = "Ordini";
+            this.lbl_ordina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Ristorante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(348, 398);
+            this.Controls.Add(this.lbl_ordina);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.btn_aggiungi);
+            this.Name = "Ristorante";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -55,7 +77,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_aggiungi;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lbl_ordina;
     }
 }
 

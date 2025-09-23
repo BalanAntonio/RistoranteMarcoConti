@@ -53,7 +53,7 @@ namespace RistoranteCarloConti
                     for (int i = 0; i < tutti.Length; i++)
                     {
                         string[] diviso = tutti[i].Split(';');
-                        if (diviso[0].ToLower() == cosa.ToLower())
+                        if (diviso[0].ToLower().Contains(cosa.ToLower()))
                         {
                             lst_menu.Items.Add(diviso[0] + "\t\t\t" + diviso[1]);
                             prezziPiatti[i] = float.Parse(diviso[1]);
@@ -142,6 +142,11 @@ namespace RistoranteCarloConti
         private void button1_Click(object sender, EventArgs e)
         {
             AggiornaMenu("");
+        }
+
+        private void txt_cerca_TextChanged(object sender, EventArgs e)
+        {
+            AggiornaMenu(txt_cerca.Text);
         }
     }
 }
