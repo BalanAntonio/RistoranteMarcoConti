@@ -121,7 +121,15 @@ namespace RistoranteCarloConti
 
                 lst_ordini.Items.Add(piatto.Nome + "\t\t\t" + piatto.Quantita);
                 prezzoTot += piatto.Prezzo;
-                lbl_totale.Text = $"Tot. {prezzoTot} euro";
+
+                if(prezzoTot > 50f)
+                {
+                    lbl_totale.Text = $"Tot. {prezzoTot - 0.05f * prezzoTot} euro";
+                }
+                else
+                {
+                    lbl_totale.Text = $"Tot. {prezzoTot} euro";
+                }
             }
         }
 
@@ -129,8 +137,10 @@ namespace RistoranteCarloConti
         {
             if(txt_nome.Text != "Nome e cognome..." && !string.IsNullOrWhiteSpace(txt_nome.Text) && piatti.Any())
             {
+                if (prezzoTot > 50) { prezzoTot -= prezzoTot * 0.05f; }
                 ordine = new Ordine(piatti.ToArray(), txt_nome.Text, prezzoTot);
                 MessageBox.Show("Ordine confermato.");
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
             else

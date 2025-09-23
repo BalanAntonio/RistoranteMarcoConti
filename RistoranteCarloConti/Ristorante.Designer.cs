@@ -28,58 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_aggiungi = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lbl_ordina = new System.Windows.Forms.Label();
+            this.btn_piazza = new System.Windows.Forms.Button();
+            this.lst_ordini = new System.Windows.Forms.ListBox();
+            this.lbl_ordini = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btn_aggiungi
+            // btn_piazza
             // 
-            this.btn_aggiungi.Location = new System.Drawing.Point(12, 366);
-            this.btn_aggiungi.Name = "btn_aggiungi";
-            this.btn_aggiungi.Size = new System.Drawing.Size(324, 23);
-            this.btn_aggiungi.TabIndex = 0;
-            this.btn_aggiungi.Text = "Piazza ordine";
-            this.btn_aggiungi.UseVisualStyleBackColor = true;
-            this.btn_aggiungi.Click += new System.EventHandler(this.button1_Click);
+            this.btn_piazza.Location = new System.Drawing.Point(12, 301);
+            this.btn_piazza.Name = "btn_piazza";
+            this.btn_piazza.Size = new System.Drawing.Size(324, 23);
+            this.btn_piazza.TabIndex = 0;
+            this.btn_piazza.Text = "Piazza ordine";
+            this.btn_piazza.UseVisualStyleBackColor = true;
+            this.btn_piazza.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
+            // lst_ordini
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 44);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(324, 316);
-            this.listBox1.TabIndex = 1;
+            this.lst_ordini.FormattingEnabled = true;
+            this.lst_ordini.Location = new System.Drawing.Point(12, 44);
+            this.lst_ordini.Name = "lst_ordini";
+            this.lst_ordini.Size = new System.Drawing.Size(324, 251);
+            this.lst_ordini.TabIndex = 1;
+            this.lst_ordini.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lst_ordini_MouseDoubleClick);
             // 
-            // lbl_ordina
+            // lbl_ordini
             // 
-            this.lbl_ordina.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ordina.Location = new System.Drawing.Point(12, 9);
-            this.lbl_ordina.Name = "lbl_ordina";
-            this.lbl_ordina.Size = new System.Drawing.Size(324, 32);
-            this.lbl_ordina.TabIndex = 7;
-            this.lbl_ordina.Text = "Ordini";
-            this.lbl_ordina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_ordini.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ordini.Location = new System.Drawing.Point(12, 9);
+            this.lbl_ordini.Name = "lbl_ordini";
+            this.lbl_ordini.Size = new System.Drawing.Size(324, 32);
+            this.lbl_ordini.TabIndex = 7;
+            this.lbl_ordini.Text = "Ordini";
+            this.lbl_ordini.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Ristorante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 398);
-            this.Controls.Add(this.lbl_ordina);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.btn_aggiungi);
+            this.ClientSize = new System.Drawing.Size(348, 330);
+            this.Controls.Add(this.lbl_ordini);
+            this.Controls.Add(this.lst_ordini);
+            this.Controls.Add(this.btn_piazza);
             this.Name = "Ristorante";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Ristorante_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn_aggiungi;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label lbl_ordina;
+        private System.Windows.Forms.Button btn_piazza;
+        private System.Windows.Forms.ListBox lst_ordini;
+        private System.Windows.Forms.Label lbl_ordini;
     }
 }
 

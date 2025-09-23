@@ -18,6 +18,8 @@ namespace RistoranteCarloConti
             InitializeComponent();
         }
 
+        int indice = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(!File.Exists("menu.csv"))
@@ -29,7 +31,68 @@ namespace RistoranteCarloConti
 
             Menu_form menu = new Menu_form();
             menu.ShowDialog();
-            
+
+            if(menu.DialogResult != DialogResult.OK) { return; } 
+
+            string ordin = $"\n{indice};{menu.ordine.Nome};";
+
+            for(int i = 0;i < menu.ordine.Piatti.Length; i++)
+            {
+                ordin += menu.ordine.Piatti[i].Quantita + ";" + menu.ordine.Piatti[i].Nome + ";";
+            }
+            ordin += "" + menu.ordine.PrezzoTot;
+
+            lst_ordini.Items.Add("Tavolo n. " + indice + " " + menu.ordine.Nome);
+
+            using(StreamWriter sw = new StreamWriter("ordini.csv",true))
+            {
+                sw.Write(ordin);
+            }
+
+            indice++;
+        }
+
+        private void Ristorante_Load(object sender, EventArgs e)
+        {
+            using (StreamReader sr = new StreamReader("ordini.csv"))
+            {
+                sr.ReadLine();
+                string[] tutto = sr.ReadToEnd().Split('\n');
+                indice = tutto.Length;
+
+                for (int i = 0; i < indice; i++)
+                {
+                    string[] diviso = tutto[i].Split(';');
+                    lst_ordini.Items.Add("Tavolo n. " + diviso[0] + " " + diviso[1]);
+                }
+            }
+        }
+
+        private void lst_ordini_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            List<Piatto> piatti = new List<Piatto>();
+            Ordine ordine;
+            int id;
+
+            using (StreamReader sr = new StreamReader("ordini.csv"))
+            {
+                sr.ReadLine();
+                string[] tutto = sr.ReadToEnd().Split('\n')[lst_ordini.SelectedIndex].Split(';');
+
+                id = int.Parse(tutto[0]);
+
+                for (int i = 2; i < tutto.Length - 1; i += 2)
+                {
+                    Piatto piatt = new Piatto(tutto[i + 1], 0f, int.Parse(tutto[i]));
+                    piatti.Add(piatt);
+                }
+
+                ordine = new Ordine(piatti.ToArray(), tutto[1], float.Parse(tutto[tutto.Length-1]));
+            }
+
+            Visualizza vis = new Visualizza();
+            vis.SalvaValori(ordine, id);
+            vis.ShowDialog();
         }
     }
 }
