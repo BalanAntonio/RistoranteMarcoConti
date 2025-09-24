@@ -22,19 +22,6 @@ namespace RistoranteCarloConti
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Github non salva i file quindi ecco qua da usare come esempi
-            if(!File.Exists("menu.csv"))
-            {
-                StreamWriter sw = new StreamWriter("menu.csv");
-                sw.Write("Bruschetta al pomodoro;6,50\r\nCarpaccio di manzo con rucola e grana;9,00\r\nInsalata caprese con mozzarella di bufala;8,00\r\nSpaghetti alla carbonara;12,00\r\nLasagna alla bolognese;13,50\r\nRisotto ai funghi porcini;14,00\r\nBistecca alla fiorentina;22,00\r\nFiletto di salmone al forno con erbe aromatiche;18,00\r\nPollo alla cacciatora;15,50\r\nPatate al forno;4,00\r\nVerdure grigliate;5,00\r\nInsalata mista;4,50\r\nTiramisù della casa;5,00\r\nCheesecake ai frutti di bosco;6,00\r\nPanna cotta con coulis di fragola;5,50");
-                sw.Close();
-            }
-            if (!File.Exists("ordini.csv"))
-            {
-                StreamWriter sw = new StreamWriter("ordini.csv");
-                sw.Write("ID;NOME;ORDINI;PREZZO TOT\r\n0;Stefano Lepri;5;insalata mista;5;patate al forno;42,5\r\n1;Andrea Medolago;1;spaghetti alla carbonara;12\r\n2;Mattia Motta;1;Patate al forno;4\r\n3;Tommaso Quagliato;2;Risotto ai funghi porcini;28\r\n4;Davide Marchetto;11;Verdure grigliate;52,25");
-                sw.Close();
-            }
 
             Menu_form menu = new Menu_form();
             menu.ShowDialog();
@@ -61,6 +48,21 @@ namespace RistoranteCarloConti
 
         private void Ristorante_Load(object sender, EventArgs e)
         {
+
+            //Github non salva i file quindi ecco qua da usare come esempi
+            if (!File.Exists("menu.csv"))
+            {
+                StreamWriter sw = new StreamWriter("menu.csv");
+                sw.Write("Bruschetta al pomodoro;6,50\r\nCarpaccio di manzo con rucola e grana;9,00\r\nInsalata caprese con mozzarella di bufala;8,00\r\nSpaghetti alla carbonara;12,00\r\nLasagna alla bolognese;13,50\r\nRisotto ai funghi porcini;14,00\r\nBistecca alla fiorentina;22,00\r\nFiletto di salmone al forno con erbe aromatiche;18,00\r\nPollo alla cacciatora;15,50\r\nPatate al forno;4,00\r\nVerdure grigliate;5,00\r\nInsalata mista;4,50\r\nTiramisù della casa;5,00\r\nCheesecake ai frutti di bosco;6,00\r\nPanna cotta con coulis di fragola;5,50");
+                sw.Close();
+            }
+            if (!File.Exists("ordini.csv"))
+            {
+                StreamWriter sw = new StreamWriter("ordini.csv");
+                sw.Write("ID;NOME;ORDINI;PREZZO TOT\r\n0;Stefano Lepri;5;insalata mista;5;patate al forno;42,5\r\n1;Andrea Medolago;1;spaghetti alla carbonara;12\r\n2;Mattia Motta;1;Patate al forno;4\r\n3;Tommaso Quagliato;2;Risotto ai funghi porcini;28\r\n4;Davide Marchetto;11;Verdure grigliate;52,25");
+                sw.Close();
+            }
+
             using (StreamReader sr = new StreamReader("ordini.csv"))
             {
                 sr.ReadLine();

@@ -30,8 +30,7 @@ namespace RistoranteCarloConti
             using (StreamReader sr = new StreamReader("menu.csv"))
             {
                 sr.ReadLine();
-                string tutto = sr.ReadToEnd();
-                string[] tutti = tutto.Split('\n');
+                string[] tutti = sr.ReadToEnd().Split('\n');
 
                 lst_menu.Items.Clear();
 
@@ -158,6 +157,12 @@ namespace RistoranteCarloConti
         private void txt_cerca_TextChanged(object sender, EventArgs e)
         {
             AggiornaMenu(txt_cerca.Text);
+        }
+
+        private void lst_menu_MouseClick(object sender, MouseEventArgs e)
+        {
+            string selezionato = lst_menu.SelectedItem.ToString().Split(':')[0];
+            txt_nomeOrdine.Text = selezionato;
         }
     }
 }

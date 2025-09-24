@@ -50,6 +50,7 @@
             this.lst_menu.Name = "lst_menu";
             this.lst_menu.Size = new System.Drawing.Size(318, 368);
             this.lst_menu.TabIndex = 0;
+            this.lst_menu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lst_menu_MouseClick);
             // 
             // txt_cerca
             // 
